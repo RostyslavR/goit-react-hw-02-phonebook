@@ -8,12 +8,12 @@ import { List } from 'components/List/List';
 
 export class App extends Component {
   state = {
-    contacts: [...contacts],
+    contacts,
     filter: '',
   };
 
   handleAdd = ({ name, phone }, { resetForm }) => {
-    const contactId = nanoid();
+    const id = nanoid();
 
     const existsContact = this.state.contacts.find(
       contact => contact.name.toLowerCase() === name.toLowerCase()
@@ -24,9 +24,11 @@ export class App extends Component {
       return;
     } else {
       this.setState(prevState => ({
-        contacts: [...prevState.contacts, { id: contactId, name, phone }],
+        contacts: [...prevState.contacts, { id, name, phone }],
       }));
     }
+
+    console.log(this.state.contacts);
 
     resetForm();
   };
