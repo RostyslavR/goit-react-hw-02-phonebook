@@ -28,8 +28,6 @@ export class App extends Component {
       }));
     }
 
-    console.log(this.state.contacts);
-
     resetForm();
   };
 
